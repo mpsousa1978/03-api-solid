@@ -4,16 +4,16 @@ Gympass style app.
 
 ## RFs (Requisitos funcionais)
 
--[ ] Deve ser possivel se cadastrar
--[ ] Deve ser possível se autenticar
--[ ] Deve ser possível obter o prfil de um usuario logado
--[ ] Deve ser possível obter o número de check-ins realizados pelo usuario logado;
--[ ] Deve ser ppssível o usuario obter seu hist´rico de check-in
--[ ] Deve ser ppssível o usuário buscar academis próximas
--[ ] Deve ser ppssível o usuário buscar academias pelo nome
--[ ] Deve ser ppssível o usuário realizar check-in em uma academia
--[ ] Deve ser ppssível validar o check-in de um usuário
--[ ] Deve ser ppssível cadastrar uma academia
+- [ ] Deve ser possivel se cadastrar
+- [ ] Deve ser possível se autenticar
+- [ ] Deve ser possível obter o prfil de um usuario logado
+- [ ] Deve ser possível obter o número de check-ins realizados pelo usuario logado;
+- [ ] Deve ser ppssível o usuario obter seu hist´rico de check-in
+- [ ] Deve ser ppssível o usuário buscar academis próximas
+- [ ] Deve ser ppssível o usuário buscar academias pelo nome
+- [ ] Deve ser ppssível o usuário realizar check-in em uma academia
+- [ ] Deve ser ppssível validar o check-in de um usuário
+- [ ] Deve ser ppssível cadastrar uma academia
 
 ## RNs(Regras de negócios)
 
