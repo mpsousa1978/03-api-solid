@@ -10,6 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//model seria uma tabela do banco
 model User {
   id            String    @id @default(uuid())
   name          String
@@ -17,6 +18,8 @@ model User {
   password_hash String
   created_at    DateTime  @default(now())
   checkIns      CheckIn[]
+
+  @@map("users")
 }
 
 model CheckIn {
@@ -24,13 +27,13 @@ model CheckIn {
   created_at   DateTime  @default(now())
   validated_at DateTime?
 
-  User    User   @relation(fields: [user_id], references: [id])
+  user    User   @relation(fields: [user_id], references: [id])
   user_id String
 
   gym    Gym    @relation(fields: [gym_id], references: [id])
   gym_id String
 
-  @@map("check_in")
+  @@map("check_in") //ao invés de ser Checkin sera check_in
 }
 
 model Gym {

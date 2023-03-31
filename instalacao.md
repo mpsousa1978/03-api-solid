@@ -32,6 +32,7 @@ arquivo .eslintrc.json
 
 ----- type 
 npm i prisma -D
+
 npx prisma init --inicia a parte de banco de dados
 instalar a extenção do prisma
 no settins.json
@@ -74,6 +75,12 @@ services:
       - POSTGRESQL_PASSWORD=docker
       - POSTGRESQL_DATABASE=apisolid
 
-docker compose up -d
+docker compose up -d #roda o arquivo docker-compose.yml
 docker compose stop -d
 
+
+
+----------------------------------------
+
+npm i bcryptjs
+npm i -D @types/bcryptjs
