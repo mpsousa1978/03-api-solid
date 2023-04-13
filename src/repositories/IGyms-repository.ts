@@ -7,7 +7,7 @@ export interface FindManyNearByParams {
 
 export interface IGymsRepository {
   findId(id: string): Promise<Gym | null>
-  create(date: Prisma.GymCreateInput): Promise<Gym>
+  create(data: Prisma.GymCreateInput): Promise<Gym>
   searchMany(query: string, page: number): Promise<Gym[]>
   findManyNearBy({ latitude, longitude }: FindManyNearByParams): Promise<Gym[]>
 

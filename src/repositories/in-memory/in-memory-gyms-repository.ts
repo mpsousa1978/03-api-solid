@@ -4,6 +4,7 @@ import { randomUUID } from "crypto";
 import { getDistanceBetweenCoordinates } from "@/Utils/GetDistanceBetweenCoordinates";
 
 export class inMemoryGymsRepository implements IGymsRepository {
+  public items: Gym[] = []
 
   async findManyNearBy(params: FindManyNearByParams): Promise<Gym[]> {
     return this.items.filter((item) => {
@@ -35,8 +36,6 @@ export class inMemoryGymsRepository implements IGymsRepository {
     return gym
   }
 
-
-  public items: Gym[] = []
 
   async findId(id: string) {
     const gym = this.items.find(item => item.id === id)
