@@ -91,5 +91,37 @@ npm i -D @vitest/ui
 npm i dayjs
 npm i @fastify/jwt
 
-
 npm i -D npm-run-all
+
+criação ambiente teste e2e.
+
+no diretorio prisma, cria a pasta vitest-environment-prisma
+rodar nom init -y
+no arquivo pachage.json que foi criado :
+
+{
+  "name": "vitest-environment-prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prisma-test-environment.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+criar um arquivo prisma-test-environment.ts  para que vitest saiba onde inicia o processo:
+
+no arquivos vite.config.ts, acrescentar a configuração de onde sera feito os testes.
+  test: { environmentMatchGlobs: [['src/http/controllers/**', 'prisma']], }
+
+no package da aplicação, adicionar o script:
+    "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",  //cria um pacote de repositorio
+    "test:install-prisma-environment": "npm link vitest-environment-prisma", // faz a instalação do pacote
+    "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
+    "test:e2e": "vitest run --dir src/http",
+
+npm i supertest - D
+
+npm i @types/supertest -d
+
+
