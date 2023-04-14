@@ -89,3 +89,7 @@ npm i vitest vite-tsconfig-paths -D
 
 npm i -D @vitest/ui
 npm i dayjs
+npm i @fastify/jwt
+
+
+npm i -D npm-run-all
