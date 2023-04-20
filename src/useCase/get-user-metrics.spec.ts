@@ -7,7 +7,7 @@ let sut: GetUserMetricsUseCase
 
 describe('Get User Metrics use case', () => {
   beforeEach(async () => {
-    checkInsRepository = new inMemoryCheckInRepository
+    checkInsRepository = new inMemoryCheckInRepository()
     sut = new GetUserMetricsUseCase(checkInsRepository)
   })
 

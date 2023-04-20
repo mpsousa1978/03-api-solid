@@ -3,7 +3,6 @@ import { inMemoryCheckInRepository } from '@/repositories/in-memory/in-memory-ch
 import { inMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { ValidateCheckInUseCase } from './validate-check-in'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
-import { LateCheckInValidationError } from './errors/late-check-in-validation-erro'
 
 let checkInRepository: inMemoryCheckInRepository
 let gymsRepository: inMemoryGymsRepository
@@ -11,7 +10,7 @@ let sut: ValidateCheckInUseCase
 
 describe('Validate Check-in Use Case', () => {
   beforeEach(async () => {
-    checkInRepository = new inMemoryCheckInRepository
+    checkInRepository = new inMemoryCheckInRepository()
     sut = new ValidateCheckInUseCase(checkInRepository)
     vi.useFakeTimers()
 

@@ -1,30 +1,27 @@
 import { z } from "zod"
 
 import { FastifyRequest, FastifyReply } from "fastify"
-import { UserAlreadyExistsError } from "@/useCase/errors/user-already-exists-error"
-import { makeRegisterUseCase } from "@/useCase/factories/make-register-use-case"
+import { makeCreateGymUseCase } from "@/useCase/factories/make-create-gym-use-case"
 
-
-export async function register(request: FastifyRequest, reply: FastifyReply) {
-  const registerBodySchema = z.object({
-    name: z.string(),
-    email: z.string().email(),
-    password: z.string().min(6)
+export async function create(request: FastifyRequest, reply: FastifyReply) {
+  const createBodySchema = z.object({
+    title: z.string(),
+    description: z.string().nullable(),
+    phone: z.string().nullable(),
+    latitude: z.number().refine(value => {
+      return Math.abs(value) <= 90
+    }),
+    longitude: z.number().refine(value => {
+      return Math.abs(value) <= 100
+    })
   })
 
-  const { name, email, password } = registerBodySchema.parse(request.body)
+  const { title, description, phone, latitude, longitude } = createBodySchema.parse(request.body)
 
-  try {
+  const gymUseCase = makeCreateGymUseCase()
 
-    const registerUseCase = makeRegisterUseCase()
-
-    await registerUseCase.execute({ name, email, password })
-  } catch (err) {
-    if (err instanceof UserAlreadyExistsError) {
-      return reply.status(409).send({ message: err.message })
-    }
-    throw err
-  }
+  await gymUseCase.execute({ title, description, phone, latitude, longitude })
 
   return reply.status(201).send()
 }
+

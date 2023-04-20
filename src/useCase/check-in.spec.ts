@@ -12,8 +12,8 @@ let sut: CheckInUseCase
 
 describe('Check-in Use Case', () => {
   beforeEach(async () => {
-    checkInRepository = new inMemoryCheckInRepository
-    gymsRepository = new inMemoryGymsRepository
+    checkInRepository = new inMemoryCheckInRepository()
+    gymsRepository = new inMemoryGymsRepository()
     sut = new CheckInUseCase(checkInRepository, gymsRepository)
     vi.useFakeTimers()
 

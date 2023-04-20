@@ -7,7 +7,7 @@ let sut: SearchGymsUseCase
 
 describe('Search Gyms use case', () => {
   beforeEach(async () => {
-    gymsRepository = new inMemoryGymsRepository
+    gymsRepository = new inMemoryGymsRepository()
     sut = new SearchGymsUseCase(gymsRepository)
   })
 
@@ -33,7 +33,6 @@ describe('Search Gyms use case', () => {
       query: 'academia 1',
       page: 1
     })
-    //console.log(gyms)
     expect(gyms).toHaveLength(1)
     expect(gyms).toEqual([expect.objectContaining({ title: 'academia 1' })])
   })

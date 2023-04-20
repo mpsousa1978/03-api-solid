@@ -3,6 +3,7 @@ import { IUsersRepository } from "../IUsers-repository"
 import { randomUUID } from "node:crypto";
 
 export class inMemoryUsersRepository implements IUsersRepository {
+
   public items: User[] = []
 
   async findId(id: string) {
@@ -23,16 +24,17 @@ export class inMemoryUsersRepository implements IUsersRepository {
     return user
   }
 
-
-  async create(data: Prisma.UserCreateInput) {
-    const user = {
+  async create(data: Prisma.UserCreateInput): Promise<User> {
+    const user: User = {
       id: randomUUID(),
       name: data.name,
       email: data.email,
+      role: 'ADMIN',
       password_hash: data.password_hash,
       created_at: new Date(0)
     }
     this.items.push(user)
     return user
   }
+
 }  

@@ -7,7 +7,7 @@ let sut: CreateGymUseCase
 
 describe('Create Gym Use Case', () => {
   beforeEach(() => {
-    gymsRepository = new inMemoryGymsRepository
+    gymsRepository = new inMemoryGymsRepository()
     sut = new CreateGymUseCase(gymsRepository)
   })
 

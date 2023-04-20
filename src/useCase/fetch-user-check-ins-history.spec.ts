@@ -7,7 +7,7 @@ let sut: FetchUserCheckInHistoryUseCase
 
 describe('Fetch User check-in history use case', () => {
   beforeEach(async () => {
-    checkInsRepository = new inMemoryCheckInRepository
+    checkInsRepository = new inMemoryCheckInRepository()
     sut = new FetchUserCheckInHistoryUseCase(checkInsRepository)
   })
 

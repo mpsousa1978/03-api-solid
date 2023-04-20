@@ -9,7 +9,7 @@ let sut: AuthenticateUseCase
 
 describe('Authenticate Use Case', () => {
   beforeEach(() => {
-    usersRepository = new inMemoryUsersRepository
+    usersRepository = new inMemoryUsersRepository()
     sut = new AuthenticateUseCase(usersRepository)
   })
 

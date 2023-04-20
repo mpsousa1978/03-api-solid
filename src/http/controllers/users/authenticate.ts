@@ -17,14 +17,35 @@ export async function Authenticate(request: FastifyRequest, reply: FastifyReply)
     const authenticateUseCase = makeAuthenticateUseCase()
 
     const { user } = await authenticateUseCase.execute({ email, password })
+
     const token = await reply.jwtSign(
-      {},
+      {
+        role: user.role
+      },
       {
         sign: { sub: user.id }
       }
     )
+    const refreshToken = await reply.jwtSign(
+      {
+        role: user.role
+      },
+      {
+        sign: {
+          sub: user.id,
+          expiresIn: '7d'
+        }
+      }
+    )
 
-    return reply.status(200).send({ token })
+    return reply
+      .setCookie('refreshToken', refreshToken, {
+        path: '/',
+        secure: true,
+        sameSite: true,
+        httpOnly: true
+      })
+      .status(200).send({ token })
 
   } catch (err) {
     if (err instanceof InvalidCredentialsError) {

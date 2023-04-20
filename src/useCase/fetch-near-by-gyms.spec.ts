@@ -7,7 +7,7 @@ let sut: FetchNearByGymsUseCase
 
 describe('fetch near by Gyms use case', () => {
   beforeEach(async () => {
-    gymsRepository = new inMemoryGymsRepository
+    gymsRepository = new inMemoryGymsRepository()
     sut = new FetchNearByGymsUseCase(gymsRepository)
   })
 

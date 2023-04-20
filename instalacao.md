@@ -124,4 +124,6 @@ npm i supertest - D
 
 npm i @types/supertest -d
 
+trabalhar com cooks
 
+npm i @fastify/cookie

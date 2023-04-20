@@ -4,7 +4,8 @@
     "middlewares",
     "possível",
     "rocketseat",
-    "tsup"
+    "tsup",
+    "typeorm"
   ],
   "dotenv.enableAutocloaking": false
 }

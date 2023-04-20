@@ -9,7 +9,7 @@ let sut: GetUserProfileUseCase
 
 describe('Get Use profile Use Case', () => {
   beforeEach(() => {
-    usersRepository = new inMemoryUsersRepository
+    usersRepository = new inMemoryUsersRepository()
     sut = new GetUserProfileUseCase(usersRepository)
   })
 

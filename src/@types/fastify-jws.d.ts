@@ -5,6 +5,7 @@ declare module '@fastify/jwt' {
     //payLoad: { id: number }
     user: {
       sub: string
+      role: 'ADMIN' | 'MEMBER'
     }
   }
 }

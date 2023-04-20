@@ -1,5 +1,4 @@
-import { PrismaGymsRepository } from "@/repositories/Prisma/Prisma-gyms-repository"
-import { CreateGymUseCase } from "../create-gym"
+import { PrismaGymsRepository } from "@/repositories/Prisma/prisma-gyms-repository"
 import { FetchNearByGymsUseCase } from "../fetch-near-by-gyms"
 
 export function makeFetchNearbyGymUseCase() {
