@@ -1,4 +1,5 @@
 name: Run Unit Tests
+
 on: [push]
 
 jobs:
@@ -8,9 +9,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-nodes@v3
-         with:
+        with:
           node-version: 18
           cache: 'npm'
+
       - run: npm ci
+      
       - run: npm run test
