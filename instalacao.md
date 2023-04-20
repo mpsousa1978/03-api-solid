@@ -127,3 +127,7 @@ npm i @types/supertest -d
 trabalhar com cooks
 
 npm i @fastify/cookie
+
+
+criando repositorio git
+gh repo create
